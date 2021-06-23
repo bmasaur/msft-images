@@ -18,6 +18,9 @@ jobs:
 
     - name: List files in repo
       working-directory: ${{ github.workspace }}
-      run: git ls-files > allfiles.csv
+      run: git ls-files > ./a.csv
+
+    - name: git add
+      run: git add -N -f ./a.csv
 
     - run: echo "${{ job.status }}. Yay"
