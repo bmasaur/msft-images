@@ -1,5 +1,0 @@
- OUTPUT = filelist.csv
-
-[ -f $OUTPUT ] || echo "date;sln;proj;cs;cpp" > $OUTPUT
-
- git ls-tree --full-tree -r --name-only HEAD~ > $OUTPUT
