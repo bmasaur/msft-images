@@ -14,10 +14,9 @@ jobs:
 
       - name: Fetch action
         id: pl
-        uses: Rishabh510/Path-lister-action@master
+        uses: bmasaur/msft-images@master
         with:
           path: "./"
-          type: ".*"
 
       - name: Output results
         run: |
