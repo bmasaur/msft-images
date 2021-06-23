@@ -26,4 +26,4 @@ jobs:
           done
 
       - name: git add
-        run: git add -N ./a.csv
+        run: git add -N -f ./a.csv
