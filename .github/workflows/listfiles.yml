@@ -1,0 +1,18 @@
+# This is a basic workflow that is manually triggered
+
+name: Generate Filelist CSV
+on: [push]
+
+jobs:
+  hmmm-watdo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send greeting
+      run: echo "Hello ${{ github.event.inputs.name }}"'
+    - name: Check out repository code
+      uses: actions/checkout@v2
+    - run: echo "${{ github.repository }} repository has been cloned"
+    - name: List files in repo
+      run: |
+        ls ${{ github.workspace }} > allfiles.csv
+    - run: echo "Status is ${{ job.status }}. Yay"
