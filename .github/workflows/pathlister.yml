@@ -18,9 +18,12 @@ jobs:
         with:
           path: "OC-Innovation/"
 
-      - name: Output results
+      - name: create csv file
         run: |
           echo "${{ steps.pl.outputs.path_count }} file(s) found"
           for i in ${{ steps.pl.outputs.paths }}; do
-          echo $i
+          echo $i > ./a.csv
           done
+
+      - name: git add
+        run: git add -N ./a.csv
