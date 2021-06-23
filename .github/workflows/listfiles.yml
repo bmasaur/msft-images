@@ -23,8 +23,9 @@ jobs:
     - name: Write to CSV file
       uses: gr2m/write-csv-file-action@v1.0.0
       with:
-        path: ./allfiles.csv
-        columns: Filename
-        "Filename": ${{ steps.pl.outputs.paths }}
+        path: ./files.csv
+        columns: cname 1, cname 2
+        "cname 1": ${{ steps.pl.outputs.paths }}
+        "cname 2": 2
 
     - run: echo "${{ job.status }}. Yay"
