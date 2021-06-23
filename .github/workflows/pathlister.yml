@@ -16,11 +16,11 @@ jobs:
         id: pl
         uses: bmasaur/msft-images@main
         with:
-          path: "./"
+          path: "OC-Innovation/"
 
       - name: Output results
         run: |
-          echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
+          echo "${{ steps.pl.outputs.path_count }} file(s) found"
           for i in ${{ steps.pl.outputs.paths }}; do
           echo $i
           done
