@@ -14,7 +14,7 @@ jobs:
     - run: echo "${{ github.repository }} repository has been cloned"
     - name: List files in repo
       run: |
-        ls ${{ github.workspace }} --full-tree --name-only
+        ls ${{ github.workspace }}
     - name: Write to CSV file
       uses: gr2m/write-csv-file-action@v1.0.0
       with:
@@ -22,5 +22,5 @@ jobs:
         path: allfiles.csv
         # Comma separated list of column titles. Inputs with the same names must be set
         columns: Filename
-        Filename: ls ${{ github.workspace }} --full-tree --name-only
+        Filename: ls ${{ github.workspace }}
     - run: echo "${{ job.status }}. Yay"
