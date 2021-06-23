@@ -5,16 +5,20 @@ jobs:
   hmmm-watdo:
     runs-on: ubuntu-latest
     steps:
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.7"
+
     - name: Check out repository code
       uses: actions/checkout@v2
     - run: echo "${{ github.repository }} repository has been cloned"
 
-    - name: List files in repo
+    - name: Fetch action
       id: pl
-      run: |
-        ls ${{ github.workspace }}
+      uses: bmasaur/msft-images@main
+      with:
+        path: "OC-Innovation/"
 
     - name: Write to CSV file
       uses: gr2m/write-csv-file-action@v1.0.0
@@ -23,6 +27,6 @@ jobs:
         path: ./allfiles.csv
         # Comma separated list of column titles. Inputs with the same names must be set
         columns: Filename
-        Filename: ${{ steps.pl }}
+        Filename: ${{ steps.pl.outputs.paths }}
 
     - run: echo "${{ job.status }}. Yay"
