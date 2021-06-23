@@ -10,9 +10,12 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v2
     - run: echo "${{ github.repository }} repository has been cloned"
+
     - name: List files in repo
+      id: pl
       run: |
         ls ${{ github.workspace }}
+
     - name: Write to CSV file
       uses: gr2m/write-csv-file-action@v1.0.0
       with:
@@ -20,5 +23,6 @@ jobs:
         path: ./allfiles.csv
         # Comma separated list of column titles. Inputs with the same names must be set
         columns: Filename
-        Filename: ls ${{ github.workspace }}
+        Filename: ${{ steps.pl }}
+
     - run: echo "${{ job.status }}. Yay"
