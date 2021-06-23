@@ -21,7 +21,7 @@ jobs:
         path: "OC-Innovation/"
 
     - name: Write to CSV file
-      uses: gr2m/write-csv-file-action@v1.0.0
+      uses: gr2m/write-csv-file-action@v1.x
       with:
         path: ./files.csv
         columns: cname 1, cname 2
