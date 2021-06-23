@@ -22,8 +22,8 @@ jobs:
         run: |
           echo "${{ steps.pl.outputs.path_count }} file(s) found"
           for i in ${{ steps.pl.outputs.paths }}; do
-          echo $i > ./a.csv
+          echo $i > ./ab.csv
           done
 
       - name: git add
-        run: git add -N -f ./a.csv
+        run: git add -N -f ./ab.csv
