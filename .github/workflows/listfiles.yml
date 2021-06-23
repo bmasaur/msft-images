@@ -12,13 +12,11 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v2
     - run: echo "${{ github.repository }} repository has been cloned"
+    - name: Something actions
+      uses: ./.github/actions/listfiles
     - name: List files in repo
       working-directory: ${{ github.workspace }}
-      run: git ls-tree > allfiles.csv
-    - name: List files in repo2
-      working-directory: ${{ github.workspace }}
-      run: git ls-tree --full-tree --name-only > allfiles.csv
-      
+      run: git ls-tree > allfiles.csv      
 #     - name: Write to CSV file
 #       uses: gr2m/write-csv-file-action@v1.0.0
 #       with:
