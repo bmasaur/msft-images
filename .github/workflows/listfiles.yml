@@ -23,10 +23,8 @@ jobs:
     - name: Write to CSV file
       uses: gr2m/write-csv-file-action@v1.0.0
       with:
-        # Relative path to .csv file (example: data/stats.csv)
         path: ./allfiles.csv
-        # Comma separated list of column titles. Inputs with the same names must be set
         columns: Filename
-        Filename: ${{ steps.pl.outputs.paths }}
+        "Filename": ${{ steps.pl.outputs.paths }}
 
     - run: echo "${{ job.status }}. Yay"
